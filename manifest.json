@@ -1,0 +1,9 @@
+{
+  "name": "Our Spots",
+  "short_name": "Our Spots",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f1f4f1",
+  "theme_color": "#1f5c45",
+  "icons": [{ "src": "icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }]
+}

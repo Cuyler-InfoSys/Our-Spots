@@ -1,0 +1,23 @@
+rules_version = '2';
+
+// Only the two Google accounts listed below can read or change spots.
+// Replace the placeholder emails with yours and your girlfriend's,
+// then paste this whole file into Firestore Database → Rules → Publish.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isUs() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in [
+             'your.email@gmail.com',
+             'her.email@gmail.com'
+           ];
+    }
+
+    match /spots/{spotId} {
+      allow read, write: if isUs();
+    }
+  }
+}
